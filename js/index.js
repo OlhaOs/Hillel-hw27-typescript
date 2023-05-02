@@ -17,7 +17,7 @@ function handleSearchButton() {
 }
 
 function fetchApi(query) {
-  fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}`)
+  fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}`)
     .then(response => response.json())
     .then(data => {
       renderData(data.current);
@@ -52,7 +52,7 @@ function handleMoreInfoButton(e) {
     return;
   }
   fetch(
-    `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=14`
+    `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=14`
   )
     .then(response => response.json())
     .then(data => {
