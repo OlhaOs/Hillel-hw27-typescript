@@ -5,7 +5,8 @@ const refs = {
   forecastInfo: document.querySelector('#weatherForecast'),
 };
 
-const apiKey = '7678b79646da4dcca50153348231305';
+const API_KEY = '7678b79646da4dcca50153348231305';
+const DAY_FORECAST = 5;
 let query = '';
 refs.btnEl.addEventListener('click', handleSearchButton);
 refs.allInfo.addEventListener('click', handleMoreInfoButton);
@@ -17,9 +18,12 @@ function handleSearchButton() {
 }
 
 function fetchApi(query) {
-  fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}`, {
-    mode: 'cors',
-  })
+  fetch(
+    `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${query}`,
+    {
+      mode: 'cors',
+    }
+  )
     .then(response => response.json())
     .then(data => {
       renderData(data.current);
@@ -42,7 +46,7 @@ function renderData(currentInfo) {
       <li class="item">Wind is <span>${wind_kph} kph </span></li>
     </ul>
     <div class="checkForecastBtn"><img src="http:${icon}" class="linkToForecast" alt="${text}"}/>
-    <p class="captionForImg">Click for forecast for 14 days in ${query}</p></div>
+    <p class="captionForImg">Click for forecast for ${DAY_FORECAST} days in ${query}</p></div>
   `);
 }
 function renderErrorMessage(query) {
@@ -54,7 +58,7 @@ function handleMoreInfoButton(e) {
     return;
   }
   fetch(
-    `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=14`,
+    `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${query}&days=${DAY_FORECAST}`,
     { mode: 'cors' }
   )
     .then(response => response.json())
