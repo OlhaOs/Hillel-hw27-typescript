@@ -17,10 +17,9 @@ function handleSearchButton() {
 }
 
 function fetchApi(query) {
-  fetch(
-    `https://cors-anywhere.herokuapp.com/https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}`,
-    { mode: 'cors' }
-  )
+  fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}`, {
+    mode: 'cors',
+  })
     .then(response => response.json())
     .then(data => {
       renderData(data.current);
@@ -55,7 +54,7 @@ function handleMoreInfoButton(e) {
     return;
   }
   fetch(
-    `https://cors-anywhere.herokuapp.com/https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=14`,
+    `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=14`,
     { mode: 'cors' }
   )
     .then(response => response.json())
