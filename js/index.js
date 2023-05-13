@@ -5,7 +5,7 @@ const refs = {
   forecastInfo: document.querySelector('#weatherForecast'),
 };
 
-const apiKey = '7678b79646da4dcca50153348231305git ';
+const apiKey = '7678b79646da4dcca50153348231305';
 let query = '';
 refs.btnEl.addEventListener('click', handleSearchButton);
 refs.allInfo.addEventListener('click', handleMoreInfoButton);
