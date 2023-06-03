@@ -1,0 +1,11 @@
+{
+  "name": "hw13_weatherapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc js/index.ts"
+  },
+  "author": "",
+  "license": "ISC"
+}
